@@ -29,6 +29,13 @@
     - vscodeにて『PHP開発環境』で起動してください
 3. `.env` の作成
     - 以下の指示に従い作成しましょう
+4. コマンドの実行
+    - 以下のコマンド
+    - composer install  (最初の一回のみで大丈夫です)
+    - php artisan migrate
+    - php artisan db:seed
+5. DBの内容を更新時に実行してください
+    - php artisan migrate:fresh --seed
 
 ### env.txtと.envの書き換え
 初期状態はSQLiteベースの環境となっています。
