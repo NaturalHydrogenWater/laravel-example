@@ -2,8 +2,27 @@
 このディレクトリは、Laravel環境のテンプレートです。
 利用の際は、以下の注意点を意識しておいてください。
 
-## コンテナ構成
+## 利用方法
+1. リポジトリのクローン
+   - このリポジトリをcloneしてください(GitHub Classroomからアサインされていればあなた用です)
+2. 開発コンテナを起動する
+    - vscodeにて『PHP開発環境』で起動してください
+    - php artisan serve (laravelのサーバーを起動　※コンテナ起動時にサーバーも起動するので今回は必要なし)
+3. コマンドの実行
+    - 以下のコマンド
+    - composer install  (clone時、composer編集時に実行してください)
+4. DBの内容を更新時に実行してください
+    - php artisan migrate:fresh --seed
+5. その他のコマンド(必要に応じて変更し使用してください。大文字小文字を合わせてください)
+    - php artisan make:model Xxxx (モデルの作成)
+    - php artisan make:model Xxxx -msc (モデル、マイグレーション、シーダー、コントローラーを一気に作成できます。)
+    - php artisan make:migration create_xxxx_table (マイグレーションの作成)
+    - php artisan make:seeder XxxxTableSeeder (シーダーの作成)
+    - php artisan make:controller XxxxController (コントローラーの作成)
 
+
+## コンテナ構成
+ 
 このシステムでは、以下の構成で動くようコンテナが設定されています。
 
 * appコンテナ
@@ -18,24 +37,6 @@
   * 接続情報は `env.txt` に記載されています
 * phpmyadminコンテナ(データベースの管理用)
   * 開発コンテナー使用時のみ起動します
-* seleniumコンテナ(テスト環境のみ)
-  * 評価環境使用時のみ起動します
-
-## 利用方法
-
-1. リポジトリのクローン
-   - このリポジトリをcloneしてください(GitHub Classroomからアサインされていればあなた用です)
-2. 開発コンテナを起動する
-    - vscodeにて『PHP開発環境』で起動してください
-3. `.env` の作成
-    - 以下の指示に従い作成しましょう
-4. コマンドの実行
-    - 以下のコマンド
-    - composer install  (最初の一回のみで大丈夫です)
-    - php artisan migrate
-    - php artisan db:seed
-5. DBの内容を更新時に実行してください
-    - php artisan migrate:fresh --seed
 
 ### env.txtと.envの書き換え
 初期状態はSQLiteベースの環境となっています。
@@ -66,15 +67,6 @@ DB_DATABASE=SAMPLE
 DB_USERNAME=sampleuser
 DB_PASSWORD=samplepass
 ```
-
-
-Laravel環境の初期設定は、授業にて説明があるので、それにしたがってください。
-初期設定ができていないと、単純なPHPページは表示できるかもしれませんが、Laravelのアプリケーションは(ほぼ)動きません。
-
-## 課題の提出方法
-
-ローカル(開発コンテナ上)での作業が終わったら、従来通りGitHub上にPushすれば完了で、自動採点がはじまります。
-ただし、GitHub Classroomの仕様上、以下の作業を事前に行わないと **自動採点ができない** ので、以下の対応を忘れずに行ってください。
 
 ### GitHub Secretsの登録
 
